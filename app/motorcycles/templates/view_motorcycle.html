@@ -1,0 +1,24 @@
+<!-- view_motorcycle.html -->
+{% extends 'base.html' %}
+
+{% block title %}View Motorcycle{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1>Motorcycle Details</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Plate Number: {{ motorcycle.plate_number }}</h5>
+                        <p class="card-text">Model: {{ motorcycle.model }}</p>
+                        <p class="card-text">Owner: {{ motorcycle.owner.last_name }}, {{ motorcycle.owner.first_name }}</p>
+                        <a href="{{ url_for('motorcycles.index') }}" class="btn btn-primary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

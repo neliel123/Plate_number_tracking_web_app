@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Motorcycle{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                      Edit Motorcycle
+                    </div>
+                    <div class="card-body">
+                        <h1>Edit Motorcycle</h1>
+                        <form action="{{ url_for('motorcycles.edit_motorcycle', motorcycle_id=motorcycle.id) }}" method="post">
+                            <div class="mb-3">
+                                <label for="plate_number" class="form-label">Plate Number</label>
+                                <input type="text" class="form-control" id="plate_number" name="plate_number" value="{{ motorcycle.plate_number }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="model" class="form-label">Model</label>
+                                <input type="text" class="form-control" id="model" name="model" value="{{ motorcycle.model }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="owner_id" class="form-label">Owner</label>
+                                <select class="form-control" id="owner_id" name="owner_id" required>
+                                    {% for student in students %}
+                                    <option value="{{ student.id }}" {% if student.id == motorcycle.owner_id %}selected{% endif %}>
+                                        {{ student.first_name }} {{ student.last_name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <a href="{{ url_for('motorcycles.index') }}">Back to Motorcycles</a>
+                    </div>
+                  </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

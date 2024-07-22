@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+          About the project
+        </div>
+        <div class="card-body">
+            <h2>About Us</h2>
+            <p>TUP-Taguig AI Plate Number Recognition System</p>
+            <p>Members</p>
+            <ul>
+                <li>Carla Cudiamat</li>
+                <li>Maria Enriquez</li>
+                <li>Shane Gabad</li>
+                <li>Kean Omadan</li>
+                <li>Jhon Laurence Campos</li>
+            </ul>
+            <a href="{{ url_for('auth.login') }}">Back to Login Page</a>
+        </div>
+      </div>
+
+</div>
+{% endblock %}

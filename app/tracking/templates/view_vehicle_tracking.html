@@ -1,0 +1,24 @@
+<!-- view_vehicle_tracking.html -->
+{% extends 'base.html' %}
+
+{% block title %}View Vehicle Tracking{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1>Vehicle Tracking Details</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Plate Number: {{ tracking.plate_number }}</h5>
+                        <p class="card-text">Timestamp: {{ tracking.timestamp }}</p>
+                        <p class="card-text">Mode: {{ tracking.mode }}</p>
+                        <a href="{{ url_for('vehicle_tracking.index') }}" class="btn btn-primary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

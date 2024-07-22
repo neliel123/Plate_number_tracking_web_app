@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+{% block title %} Home {% endblock %} 
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row mt-2 g-1">
+            <div class="col-8 bg-color-white p-4">
+                <div class="row">
+                    <h3>Current Motorcycle</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="card">
+                        <div class="text-center">
+                            <img id="userPicture" src="{{ url_for('static', filename='images/motorcycle.jpg') }}"
+                                class="card-img-top" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <table class="table" id="latestMotorcyle">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>TUP ID</td>
+                                        <td class="fw-bold" id="latestTUPId"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Owner</td>
+                                        <td class="fw-bold" id="latestOwner"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Section</td>
+                                        <td class="fw-bold" id="latestSection"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Plate Number</td>
+                                        <td class="fw-bold" id="latestPlateNumber"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Model</td>
+                                        <td class="fw-bold" id="latestModel"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 bg-white border p-2">
+                <div class="row mb-3">
+                    <div>
+                        <h3>No of motorycles detected today:</h3>
+                        <h1 class="display-1 text-center" id="numberOfMotorcycles">0</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <h3>Last 10 Motorcycles</h3>
+                        <table class="table" id="plateNumberList">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Plate Number</th>
+                                    <th scope="col">Model</th>
+                                    <th scope="col">Owner</th>
+                                    <th scope="col">Section</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var userPicture = document.getElementById('userPicture');
+        if (!userPicture.src.includes('motorcycle.jpg')) {
+            userPicture.style.width = '300px';
+            userPicture.style.height = 'auto';
+        }
+    });
+</script>
+{% endblock %}
