@@ -1,6 +1,7 @@
 // Establish a Socket.IO connection
 // var socket = io.connect();
-var socket = io();
+// var socket = io();
+var socket = io("plate-number-tracking-web-app.onrender.com", {transports: ['websocket']});
 
 // Listen for the 'updateMotorcycleTracking' event
 socket.on("updateMotorcycleTracking", function (msg) {
